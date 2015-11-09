@@ -1,0 +1,13 @@
+Package: pr2-kinect
+Source: pr2-kinect2
+Version: 1.0-1
+Architecture: amd64
+Maintainer: Rahul Rawat <rrawat@clearpathrobotics.com>
+Installed-Size: 37
+Depends: beignet-dev, beignet-opencl-icd
+Provides: pr2-kinect
+Section: config
+Priority: extra
+Description: Installs pr2-kinect2 configuration for PR2-head.
+ pr2-kinect contains a script that instal iai_kinect2 (kinect2 ros drivers) and libfreenect2 (driver for kinect2).
+ This deb package was created for the Intel Nuc installments in the PR2 which run the ros bridge node, kinect2_bridge.

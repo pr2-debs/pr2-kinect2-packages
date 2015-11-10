@@ -5,7 +5,7 @@ Maintainer: Rahul Rawat <rrawat@clearpathrobotics.com>
 Build-Depends: debhelper (>= 9), config-package-dev (>= 4.5~)
 Standards-Version: 3.7.2
 
-Package: pr2-kinect
+Package: pr2-kinect2
 Architecture: any
 Depends: beignet-dev, beignet-opencl-icd
 Description: Installs pr2-kinect2 configuration for PR2-head.

@@ -36,8 +36,10 @@ cd
 sudo cp libfreenect2/rules/90-kinect2.rules /etc/udev/rules.d/
 
 # Install Iai_kinect2
-mkdir kinect_ws && cd kinect_ws
-mkdir src && cd src
+mkdir ~/kinect_ws && mkdir ~/kinect_ws/src
+sudo chown pr2-head -R kinect_ws
+sudo chgrp pr2-head -R kinect_ws
+cd ~/kinect_ws/src
 catkin_init_workspace
 git clone https://github.com/code-iai/iai_kinect2.git
 cd ~/kinect_ws/src/iai_kinect2

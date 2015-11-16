@@ -12,6 +12,7 @@ read -p "Do you wish to continue [Enter]?"
 cd
 git clone https://github.com/OpenKinect/libfreenect2.git
 sudo apt-get install build-essential libturbojpeg libjpeg-turbo8-dev libtool autoconf libudev-dev cmake mesa-common-dev freeglut3-dev libxrandr-dev doxygen libxi-dev automake
+sudo apt-add-repository ppa:floe/libusb && sudo apt-get update && sudo apt-get upgrade # temp solution proposed by libfreenect2 owner, floe
 cd libfreenect2/depends
 sh install_ubuntu.sh
 sudo dpkg -i libglfw3*_3.0.4-1_*.deb #Ubuntu 14.04 only

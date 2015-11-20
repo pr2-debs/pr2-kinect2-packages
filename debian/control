@@ -7,7 +7,7 @@ Standards-Version: 3.7.2
 
 Package: pr2-kinect2
 Architecture: any
-Depends: beignet-dev
+Depends: beignet-dev, beignet-opencl-icd, build-essential, libturbojpeg, libturbojpeg, libjpeg-turbo8-dev, libtool, autoconf, libudev-dev, cmake, mesa-common-dev, freeglut3dev, libxrandr-dev, doxygen, libxi-dev, automake
 Description: Installs pr2-kinect2 configuration for PR2-head.
 	pr2-kinect contains a script that instal iai_kinect2 (kinect2 ros drivers) and libfreenect2 (driver for kinect2). 
 	This deb package was created for the Intel Nuc installments in the PR2 which run the ros bridge node, kinect2_bridge.

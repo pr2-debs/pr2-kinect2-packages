@@ -52,6 +52,8 @@ catkin_make -DCMAKE_BUILD_TYPE="Release"
 
 # Source Files for rosrun iai_kinect
 echo "source ~/kinect_ws/devel/setup.bash" >> ~/.bashrc
+echo "export ROS_MASTER_URI=http://c1:11311" >> ~/.bashrc
+echo "export ROS_IP=10.68.0.10" >> ~/.bashrc
 . ~/.bashrc
 
 # Run Iai_kinect2 on startup
@@ -63,7 +65,7 @@ echo "source ~/kinect_ws/devel/setup.bash" >> ~/.bashrc
 #sudo sed -i '/^exit 0/isudo chmod 666 /dev/dri/*' /etc/rc.local
 
 # dpkg does not require following --
-# Replace hostname and hosts file 
+# Replace hostname and hosts file
 # sudo cp -i ~/ROSnect2_Intel/hosts /etc/hosts
 # sudo cp -i ~/ROSnect2_Intel/hostname /etc/hostname
 

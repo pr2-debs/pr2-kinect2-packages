@@ -7,4 +7,4 @@ Before installing please add the beignet ppa into your repo list by:
 sudo add-apt-repository ppa:pmjdebruijn/beignet-testing
 sudo apt-get update
 ```
-
+Please add your computer's IP address and hostname to the NUC's /etc/hosts file then add the NUC's IP address and hostname (pr2-head) to your own /etc/hosts file.

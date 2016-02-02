@@ -10,45 +10,52 @@ read -p "Do you wish to continue [Enter]?"
 
 # Install Libfreenect2
 cd
-git clone https://github.com/OpenKinect/libfreenect2.git
-sudo chown pr2-head -R libfreenect2
-sudo chgrp pr2-head -R libfreenect2
-#sudo apt-get install build-essential libturbojpeg libjpeg-turbo8-dev libtool autoconf libudev-dev cmake mesa-common-dev freeglut3-dev libxrandr-dev doxygen libxi-dev automake
-sudo apt-add-repository ppa:floe/libusb && sudo apt-get update && sudo apt-get upgrade # temp solution proposed by libfreenect2 owner, floe
-cd libfreenect2/depends
-sh install_ubuntu.sh
-sudo dpkg -i libglfw3*_3.0.4-1_*.deb #Ubuntu 14.04 only
+if [ ! -d "/libfreenect2" ];
+then
+    git clone https://github.com/OpenKinect/libfreenect2.git
+    sudo chown pr2-head -R libfreenect2
+    sudo chgrp pr2-head -R libfreenect2
+    #sudo apt-get install build-essential libturbojpeg libjpeg-turbo8-dev libtool autoconf libudev-dev cmake mesa-common-dev freeglut3-dev libxrandr-dev doxygen libxi-dev automake
+    sudo apt-add-repository ppa:floe/libusb && sudo apt-get update && sudo apt-get upgrade # temp solution proposed by libfreenect2 owner, floe
+    cd libfreenect2/depends
+    sh install_ubuntu.sh
+    sudo dpkg -i libglfw3*_3.0.4-1_*.deb #Ubuntu 14.04 only
 
-# [ Removed from deb package. Added in build-depends ]
-# Install Beignet
-# sudo add-apt-repository ppa:pmjdebruijn/beignet-testing
-# sudo apt-get update
-# sudo apt-get install beignet-dev
-# sudo apt-get install beignet-opencl-icd
 
-# Make Libfreenect2
-cd ~/libfreenect2
-mkdir build && cd build
-cmake .. -DENABLE_CXX11=ON
-make
-sudo make install
+    # [ Removed from deb package. Added in build-depends ]
+    # Install Beignet
+    # sudo add-apt-repository ppa:pmjdebruijn/beignet-testing
+    # sudo apt-get update
+    # sudo apt-get install beignet-dev
+    # sudo apt-get install beignet-opencl-icd
+
+    # Make Libfreenect2
+    cd ~/libfreenect2
+    mkdir build && cd build
+    cmake .. -DENABLE_CXX11=ON
+    make
+    sudo make install
+fi
 
 # Make UDEV rules for Kinect
 cd
 sudo cp libfreenect2/rules/90-kinect2.rules /etc/udev/rules.d/
 
 # Install Iai_kinect2
-mkdir ~/kinect_ws && mkdir ~/kinect_ws/src
-sudo chown pr2-head -R kinect_ws
-sudo chgrp pr2-head -R kinect_ws
-cd ~/kinect_ws/src
-catkin_init_workspace
-git clone https://github.com/code-iai/iai_kinect2.git
-cd ~/kinect_ws/src/iai_kinect2
-rosdep install -r --from-paths .
-cd ~/kinect_ws
-sudo apt-get update
-catkin_make -DCMAKE_BUILD_TYPE="Release"
+if [ ! -d "/kinect_ws" ];
+then
+    mkdir ~/kinect_ws && mkdir ~/kinect_ws/src
+    sudo chown pr2-head -R kinect_ws
+    sudo chgrp pr2-head -R kinect_ws
+    cd ~/kinect_ws/src
+    catkin_init_workspace
+    git clone https://github.com/code-iai/iai_kinect2.git
+    cd ~/kinect_ws/src/iai_kinect2
+    rosdep install -r --from-paths .
+    cd ~/kinect_ws
+    sudo apt-get update
+    catkin_make -DCMAKE_BUILD_TYPE="Release"
+fi
 
 # Source Files for rosrun iai_kinect
 echo "source ~/kinect_ws/devel/setup.bash" >> ~/.bashrc

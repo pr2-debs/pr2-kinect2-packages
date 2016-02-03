@@ -77,4 +77,4 @@ echo "export ROS_IP=10.68.0.10" >> ~/.bashrc
 # sudo cp -i ~/ROSnect2_Intel/hostname /etc/hostname
 
 # Source bashrc final time
-. ~/.bashrc
+# . ~/.bashrc

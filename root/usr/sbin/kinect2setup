@@ -10,7 +10,7 @@ read -p "Do you wish to continue [Enter]?"
 
 # Install Libfreenect2
 cd
-if [ ! -d "$/libfreenect2" ];
+if [ ! -d $libfreenect2 ];
 then
     git clone https://github.com/OpenKinect/libfreenect2.git
     sudo chown pr2-head -R libfreenect2
@@ -42,7 +42,7 @@ cd
 sudo cp libfreenect2/rules/90-kinect2.rules /etc/udev/rules.d/
 
 # Install Iai_kinect2
-if [ ! -d "$/kinect_ws" ];
+if [ ! -d $kinect_ws ];
 then
     mkdir ~/kinect_ws && mkdir ~/kinect_ws/src
     sudo chown pr2-head -R kinect_ws

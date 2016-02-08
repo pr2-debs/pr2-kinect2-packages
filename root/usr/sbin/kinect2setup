@@ -57,6 +57,12 @@ then
     catkin_make -DCMAKE_BUILD_TYPE="Release"
 fi
 
+# Chrony setup and syncing clocks with c1
+sudo sed -i '/server 3.debian.pool.ntp.org offline minpoll 8/ a\server c1 offline minpoll 8' /etc/chrony/chrony.conf
+sudo /etc/init.d/chrony stop
+sudo ntpdate c1
+sudo /etc/init.d/chrony start
+
 # Source Files for rosrun iai_kinect
 echo "source ~/kinect_ws/devel/setup.bash" >> ~/.bashrc
 echo "export ROS_MASTER_URI=http://c1:11311" >> ~/.bashrc

@@ -12,3 +12,4 @@ Description: Installs kinect2 drivers and other configurations for PR2-head.
 	pr2-kinect-packages contains a script that instal iai_kinect2 (kinect2 ros drivers) and libfreenect2 (driver for kinect2).
 	This deb package was created for the Intel Nuc installments in the PR2 which run the ros bridge node, kinect2_bridge.
 Provides: pr2-kinect2-packages
+Conflicts: pr2-kinect2

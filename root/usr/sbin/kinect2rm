@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sed -i '/source ~\/kinect_ws\/devel\/setup.bash/d' ~/.bashrc
+sed -i '/export ROS_MASTER_URI=http:\/\/c1:11311/d' ~/.bashrc
+sed -i '/export ROS_IP=10.68.0.10/d' ~/.bashrc
+. ~/.bashrc

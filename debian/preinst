@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "This will install the pr2-kinect2-packages package on your computer."
+echo "This package is only intended for use with an Intel NUC which will be connected to a Kinect 2."
+echo "If run on a computer other than a NUC, it may irrevocably damage your OS installation."
+read -r -p "If you understand and want to continue, please type this phrase exactly as it appears: 'Yes, I understand. Continue!' " input
+
+if [[ $input == "Yes, I understand. Continue!" ]];
+then
+  echo "Continuing with installation!"
+  exit 0
+else
+  echo "Aborting installation!"
+  exit 1
+fi

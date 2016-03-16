@@ -1,6 +1,5 @@
 #!/bin/bash
 
-clear
 echo "Kinect Driver and ROS Installion"
 echo "The following script will install:
 	beignet
